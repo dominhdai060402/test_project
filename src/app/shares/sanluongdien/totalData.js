@@ -1,0 +1,42 @@
+export const GroupData = [
+  {
+    idLoaiDonVi: 1,
+    idLoaiNhaMay: 2,
+    tenNhaMay: 'Thủy điện',
+    keHoach: 0,
+    thucHien: 0,
+    tyLe: 0,
+  },
+  {
+    idLoaiDonVi: 1,
+    idLoaiNhaMay: 2,
+    tenNhaMay: 'Nhiệt điện',
+    keHoach: 0,
+    thucHien: 0,
+    tyLe: 0,
+  },
+  {
+    idLoaiDonVi: 1,
+    idLoaiNhaMay: 2,
+    tenNhaMay: 'Trực thuộc',
+    keHoach: 0,
+    thucHien: 0,
+    tyLe: 0,
+  },
+  {
+    idLoaiDonVi: 1,
+    idLoaiNhaMay: 2,
+    tenNhaMay: 'Liên kết',
+    keHoach: 0,
+    thucHien: 0,
+    tyLe: 0,
+  },
+  {
+    idLoaiDonVi: 1,
+    idLoaiNhaMay: 2,
+    tenNhaMay: 'Genco 1',
+    keHoach: 0,
+    thucHien: 0,
+    tyLe: 0,
+  },
+];

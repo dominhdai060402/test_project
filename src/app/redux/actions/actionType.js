@@ -1,0 +1,4 @@
+export const APP_ACTION = {
+  INIT_MODULE: 'INITIAL_MODULE',
+  APP_LOGOUT: 'APP_LOGOUT',
+};
