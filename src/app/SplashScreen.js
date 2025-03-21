@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
-
+import { Text, View, StyleSheet } from 'react-native';
 
 export function SplashScreen() {
   return (
@@ -21,8 +20,8 @@ export function EVNScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
-    alignItems: 'center', 
-    justifyContent: 'center'
-  }
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

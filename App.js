@@ -221,8 +221,8 @@ const App = () => {
                 />
               ) : (
                 <AppStack.Screen
-                  name="AuthForm"
-                  component={AuthForm}
+                  name="AuthSupport"
+                  component={AuthSupport}
                   options={{
                     headerShown: false,
                     animationTypeForReplace: state.isSignout ? 'pop' : 'push',

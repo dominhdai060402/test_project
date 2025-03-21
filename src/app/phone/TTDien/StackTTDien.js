@@ -1,7 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Actionsheet, useDisclose} from 'native-base';
 import React, {useEffect, useRef, useState} from 'react';
 import {
   Dimensions,
@@ -15,10 +14,8 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-fontawesome-pro';
-import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
-import {WebView} from 'react-native-webview';
 import {COLOR, RouteC3} from '../../../env/config';
-import {LoadingView, RighIcon, SettingIcon} from '../../components/Components';
+import {RighIcon} from '../../components/Components';
 import CommonHttp from '../../services/commonHttp';
 import TtdURL from '../../services/thitruongdien/ttdURL';
 import {SettingScreen} from '../../SettingScreen';
@@ -38,7 +35,7 @@ import Congsuathethong from '../../shares/thitruongdien/Congsuathethong';
 import {TTthitruong} from '../../shares/thitruongdien/TTthitruong';
 import {Bieudothuyvan} from '../../shares/thuyvan/Bieudothuyvan';
 import {Appstyles} from '../../styles/AppStyle';
-import {AppHeaderNone, AppHeaderMain} from '../AppHeader';
+import {AppHeaderMain} from '../AppHeader';
 import TextTicker from 'react-native-text-ticker';
 import {Taichinh} from '../../shares/taichinh/Taichinh';
 import {SLtheonhamay} from '../../shares/sanluongdien/SLtheonhamay';
@@ -128,169 +125,6 @@ function StackTTDienHome({navigation}) {
             </View>
           </View>
         </View>
-        {/* UI cũ */}
-        {/* <View style={Appstyles.container}>
-          <View style={{flex: 1, paddingTop: 32}}>
-            <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
-              <View style={styles.vRowFeature}>
-                <TouchableOpacity
-                  style={styles.itemFeature}
-                  onPress={() => navigation.navigate('Congsuathethong')}>
-                  <View style={styles.vFeature}>
-                    <Icon
-                      name={'battery-bolt'}
-                      color={'#990099'}
-                      size={32}
-                      type="light"
-                    />
-                  </View>
-                  <Text style={styles.txtFeature}>Công suất</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.itemFeature}
-                  onPress={() => navigation.navigate('TTthitruong')}>
-                  <View style={styles.vFeature}>
-                    <Icon
-                      name={'waveform-path'}
-                      color={'#3366CC'}
-                      size={32}
-                      type="light"
-                    />
-                  </View>
-                  <Text style={styles.txtFeature}>Thị trường điện</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.itemFeature}
-                  onPress={() => navigation.navigate('Bieudothuyvan')}>
-                  <View style={styles.vFeature}>
-                    <Icon
-                      name={'water-rise'}
-                      color={'#DC3912'}
-                      size={32}
-                      type="light"
-                    />
-                  </View>
-                  <Text style={styles.txtFeature}>Thủy văn</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.vRowFeature}>
-                <TouchableOpacity
-                  style={styles.itemFeature}
-                  onPress={() => navigation.navigate('ThSanluong')}>
-                  <View style={styles.vFeature}>
-                    <Icon
-                      name={'heart-rate'}
-                      color={'#109618'}
-                      size={30}
-                      type="light"
-                    />
-                  </View>
-                  <Text style={styles.txtFeature}>Sản lượng</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.itemFeature}
-                  onPress={() => navigation.navigate('Taichinh')}>
-                  <View style={styles.vFeature}>
-                    <Icon
-                      name={'analytics'}
-                      color={'#0000FF'}
-                      size={32}
-                      type="light"
-                    />
-                  </View>
-                  <Text style={styles.txtFeature}>Tài chính</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.itemFeature}
-                  onPress={() => navigation.navigate('Suachualon')}>
-                  <View style={styles.vFeature}>
-                    <Icon
-                      name={'tools'}
-                      color={'#FF9900'}
-                      size={30}
-                      type="light"
-                    />
-                  </View>
-                  <Text style={styles.txtFeature}>Lịch sửa chữa</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.vRowFeature}>
-                <TouchableOpacity
-                  style={styles.itemFeature}
-                  onPress={() => navigation.navigate('CTKTKythuat')}>
-                  <View style={styles.vFeature}>
-                    <Icon
-                      name={'microchip'}
-                      color={COLOR.HEARDER}
-                      size={32}
-                      type="light"
-                    />
-                  </View>
-                  <Text style={styles.txtFeature}>CT Kỹ thuật</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.itemFeature}
-                  onPress={() => navigation.navigate('Nhienlieu')}>
-                  <View style={styles.vFeature}>
-                    <Icon
-                      name={'gas-pump'}
-                      color={'#0099C6'}
-                      size={30}
-                      type="light"
-                    />
-                  </View>
-                  <Text style={styles.txtFeature}>Nhiên liệu</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.itemFeature}
-                  onPress={() => navigation.navigate('Moitruong')}>
-                  <View style={styles.vFeature}>
-                    <Icon
-                      name={'fire-smoke'}
-                      color={'#3B3EAC'}
-                      size={30}
-                      type="light"
-                    />
-                  </View>
-                  <Text style={styles.txtFeature}>Môi trường</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.vRowFeature}>
-                <TouchableOpacity
-                  style={styles.itemFeature}
-                  onPress={() => navigation.navigate('Baocaosanxuat')}>
-                  <View style={styles.vFeature}>
-                    <Icon
-                      name={'file-chart-line'}
-                      color={'#DD4477'}
-                      size={32}
-                      type="light"
-                    />
-                  </View>
-                  <Text style={styles.txtFeature}>Báo cáo SX</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.itemFeature}
-                  onPress={() => navigation.navigate('Thongtinnhansu')}>
-                  <View style={styles.vFeature}>
-                    <Icon
-                      name={'users'}
-                      color={'#8B0707'}
-                      size={30}
-                      type="light"
-                    />
-                  </View>
-                  <Text style={styles.txtFeature}>Nhân sự</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.itemFeature}
-                  onPress={() =>
-                    navigation.navigate('Moitruong')
-                  }></TouchableOpacity>
-              </View>
-            </ScrollView>
-          </View>
-        </View> */}
         <View
           style={{
             flex: 1,
@@ -446,12 +280,6 @@ function StackTTDien({navigation, route}) {
   //console.log('routeName:',routeName);
   useEffect(() => {
     const onInit = async () => {
-      // if (route.state && route.state.index > 1) {
-      //   navigation.setOptions({ tabBarVisible: false });
-      // } else {
-      //   navigation.setOptions({ tabBarVisible: true });
-      // }
-      //console.log('RouteTTD Check:',RouteC3.RouteTTD.includes(routeName));
       if (RouteC3.RouteTTD.includes(routeName)) {
         navigation.setOptions({tabBarVisible: false});
       } else {

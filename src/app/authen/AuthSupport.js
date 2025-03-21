@@ -112,7 +112,7 @@ const AuthSupport = ({navigation}) => {
             <TextInput
               selectionColor="#000"
               style={styles.inputField}
-              placeholder="Điền mật khẩu của bạn"
+              placeholder="Nhập mật khẩu"
               placeholderTextColor="#A0A0A0"
               secureTextEntry
               value={password}
@@ -122,10 +122,19 @@ const AuthSupport = ({navigation}) => {
 
           <View style={styles.loginWrapper}>
             <TouchableOpacity
-              style={styles.loginBtn}
+              style={[
+                styles.loginBtn,
+                {backgroundColor: loginname && password ? '#126DD8' : '#DBDFE9'},
+              ]}
               onPress={checkLogin}
               disabled={!loginname || !password}>
-              <Text style={styles.loginText}>Đăng nhập</Text>
+              <Text
+                style={[
+                  styles.loginText,
+                  {color: loginname && password ? '#FFF' : '#A0A0A0'},
+                ]}>
+                Đăng nhập
+              </Text>
             </TouchableOpacity>
 
             {biome.biometryType ? (
@@ -204,7 +213,6 @@ const styles = StyleSheet.create({
   imageStyle: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
     width: '100%',
     height: '100%',
   },
@@ -270,37 +278,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    fontSize: 13,
+    fontSize: 15,
     fontFamily: 'Inter-Medium',
-    color: '#78829D',
-  },
-  rememberMeContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 10,
-  },
-  rememberMeText: {
-    fontSize: 13,
     color: '#1C1C1E',
-    marginLeft: 8,
-  },
-
-  forgotPassword: {
-    fontSize: 13,
-    color: '#0D6EFD',
-    fontFamily: 'Inter-Medium',
-    fontWeight: '400',
-  },
-  inputField: {
-    backgroundColor: '#FCFCFC',
-    borderColor: '#DBDFE9',
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    fontSize: 13,
-    fontFamily: 'Inter-Medium',
-    color: '#78829D',
   },
   rememberMeContainer: {
     flexDirection: 'row',
@@ -349,18 +329,13 @@ const styles = StyleSheet.create({
     fontSize: 11,
   },
   loginBtn: {
-    width: '80%',
-    maxWidth: 450,
-    // backgroundColor: '#e3342f',
-    backgroundColor: '#126dd8',
-    borderRadius: 25,
+    width: '100%',
     height: 50,
+    borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
-    // marginBottom: 10,
   },
-
   faceID: {
     width: '80%',
     maxWidth: 450,
@@ -370,11 +345,9 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 10,
   },
-
   loginText: {
-    color: 'white',
+    fontSize: 16,
     fontWeight: 'bold',
-    paddingLeft: 10,
   },
   inforText: {
     color: 'white',
@@ -388,6 +361,16 @@ const styles = StyleSheet.create({
   },
   verText: {
     color: '#FFF',
+    fontWeight: 'bold',
+  },
+  bottomText: {
+    fontSize: 13,
+    color: '#1C1C1E',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+  bottomLink: {
+    color: '#0D6EFD',
     fontWeight: 'bold',
   },
 });
